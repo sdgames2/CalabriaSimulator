@@ -1,9 +1,191 @@
-project-folder/
-├── index.html
-├── icona_.ico
-├── The_Calabria_of_the_Apes_intro.mp3
-├── logo_gioco.png
-├── anteprima1.jpg
-├── anteprima2.jpg
-└── ... (altri file richiesti)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Calabria of the Apes</title>
+    <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
+    <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
+    <meta name="author" content="Il tuo nome">
+    <link rel="icon" type="image/x-icon" href="/calabria-of-the-apes/favicon.ico">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('/calabria-of-the-apes/images/anteprima4.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-shadow: 2px 2px 4px #000000; 
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+        header {
+            background-color: transparent; 
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        main {
+            max-width: 900px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            color: #FFFFFF;
+        }
+        h1, h2, h3 {
+            margin: 20px 0;
+            color: #ffd700;
+        }
+        p {
+            line-height: 1.6;
+            color: #FFFFFF;
+        }
+        .download-button {
+            background-color: #28a745; 
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .download-button:hover {
+            background-color: #218838; 
+            transform: scale(1.05);
+        }
+        .instructions {
+            margin-top: 30px;
+            background-color: #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            color: #000;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #ffd700;
+            color: #000;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid #334155;
+            box-sizing: border-box;
+        }
+        .previews {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .previews img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            max-width: 70%;
+            margin: 0 auto;
+        }
 
+        /* Media queries */
+        @media (max-width: 768px) {
+            body {
+                font-size: 90%;
+            }
+            header {
+                padding: 15px;
+            }
+            .download-button {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+            .instructions {
+                padding: 15px;
+            }
+            .previews img {
+                max-width: 200px;
+                margin: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 90%;
+            }
+            main {
+                padding: 10px;
+            }
+            .previews img {
+                max-width: 150px;
+                margin: 3px;
+            }
+            .download-button {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+            footer {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="/calabria-of-the-apes/audio/background_music.mp3" type="audio/mpeg">
+        Il tuo browser non supporta l'audio HTML.
+    </audio>
+
+    <header>
+        <img src="/calabria-of-the-apes/images/logo_gioco.png" alt="Logo The Calabria of the Apes" class="logo">
+        <p>L'avventura della Calabria delle scimmie</p>
+        <div class="previews">
+            <img src="/calabria-of-the-apes/images/anteprima1.jpg" alt="Anteprima 1">
+            <img src="/calabria-of-the-apes/images/anteprima2.jpg" alt="Anteprima 2">
+            <img src="/calabria-of-the-apes/images/anteprima3.png" alt="Anteprima 3">
+            <img src="/calabria-of-the-apes/images/anteprima4.png" alt="Anteprima 4">
+            <img src="/calabria-of-the-apes/images/anteprima5.png" alt="Anteprima 5">
+        </div>
+    </header>
+    <main>
+        <h2>Esplora un Nuovo Mondo</h2>
+        <p>Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.</p>
+        <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button">Scarica Ora</a>
+        
+        <section class="instructions">
+            <h3>Istruzioni per l'Installazione</h3>
+            <ol>
+                <li>Scarica il file APK cliccando sul pulsante sopra.</li>
+                <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
+                <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 The Calabria of the Apes. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
