@@ -93,16 +93,14 @@
             box-sizing: border-box;
         }
         .previews {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid; /* Cambiato da flex a grid */
+            grid-template-columns: repeat(2, 1fr); /* Due colonne */
             gap: 15px;
+            justify-items: center;
         }
         .previews img {
-            width: calc(50% - 15px); /* Regola per far sì che le immagini si dispongano in due colonne */
-            max-width: 300px;
+            max-width: 100%; /* Manteniamo la larghezza al massimo senza rimpicciolire */
             border-radius: 10px;
-            margin: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
         .logo {
@@ -125,8 +123,8 @@
             .instructions {
                 padding: 15px;
             }
-            .previews img {
-                max-width: calc(50% - 15px); /* Impostato per 2 colonne su dispositivi con larghezza minore */
+            .previews {
+                grid-template-columns: repeat(2, 1fr); /* Due colonne anche per schermi più piccoli */
             }
         }
 
@@ -137,9 +135,8 @@
             main {
                 padding: 10px;
             }
-            .previews img {
-                width: calc(50% - 15px); /* Mantenimento di due colonne anche su schermi molto piccoli */
-                max-width: calc(50% - 15px);
+            .previews {
+                grid-template-columns: repeat(2, 1fr); /* Due colonne su schermi molto piccoli */
             }
             .download-button {
                 font-size: 12px;
