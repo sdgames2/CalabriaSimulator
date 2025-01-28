@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Calabria of the Apes</title>
+    <title>The Calabria of the Apes</title> 
     <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
     <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
     <meta name="author" content="Il tuo nome">
@@ -22,7 +22,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            text-shadow: 2px 2px 4px #000000;
+            text-shadow: 2px 2px 4px #000000; 
         }
         body::before {
             content: '';
@@ -43,18 +43,14 @@
             box-sizing: border-box;
             position: relative;
         }
-        header img.logo {
+        header img {
             max-width: 70%;
         }
-
-        /* Posizionamento icona sotto il logo */
-        .cota-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
         .cota-icon {
-            width: 100px;  /* Nuove dimensioni */
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
             height: auto;
             animation: rotate 3s linear infinite;
         }
@@ -123,46 +119,16 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             justify-items: center;
-            cursor: pointer;
         }
         .previews img {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
-
-        /* Modale per ingrandire l'immagine */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 80%;
-            max-height: 80%;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
-
         .logo {
             max-width: 70%;
             margin: 0 auto;
         }
-
-        /* Bottoni lingua */
         .lang-button {
             margin-top: 20px;
             background-color: #ffd700;
@@ -221,17 +187,13 @@
 <body>
     <!-- Audio in background -->
     <audio id="background-music" loop>
-        <source src="background_music.mpeg" type="audio/mpeg">
-        <source src="background_music.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/SDGames23/TheCalabriaOfTheApes_/main/background_music.mp3" type="audio/mp3">
         Il tuo browser non supporta l'audio HTML.
     </audio>
 
     <header>
         <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
         <p id="game-title">L'avventura dâ Calàbbria dè scìmmie</p>
-        <div class="cota-container">
-            <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
-        </div>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
             <img src="anteprima2.jpg" alt="Anteprima 2" onclick="openModal(this)">
@@ -244,12 +206,6 @@
         </div>
         <button class="lang-button" onclick="changeLanguage()">Cambia Lingua</button>
     </header>
-
-    <!-- Modale per ingrandire l'immagine -->
-    <div id="image-modal" class="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img id="modal-img" src="" alt="Anteprima ingrandita">
-    </div>
 
     <main>
         <h2 id="explore-title">Esplora nu Munnu Nuovu</h2>
@@ -308,13 +264,41 @@
 
         // Funzione per aprire la modale con l'immagine
         function openModal(imgElement) {
-            document.getElementById('modal-img').src = imgElement.src;
-            document.getElementById('image-modal').style.display = 'flex';
-        }
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
 
-        // Funzione per chiudere la modale
-        function closeModal() {
-            document.getElementById('image-modal').style.display = 'none';
+            const modalImg = document.createElement('img');
+            modalImg.src = imgElement.src;
+            modalImg.style.maxWidth = '90%';
+            modalImg.style.maxHeight = '90%';
+
+            const closeBtn = document.createElement('button');
+            closeBtn.innerText = 'Chiudi';
+            closeBtn.style.position = 'absolute';
+            closeBtn.style.top = '20px';
+            closeBtn.style.right = '20px';
+            closeBtn.style.fontSize = '20px';
+            closeBtn.style.padding = '10px';
+            closeBtn.style.backgroundColor = '#ffd700';
+            closeBtn.style.border = 'none';
+            closeBtn.style.cursor = 'pointer';
+
+            closeBtn.addEventListener('click', function() {
+                modal.remove();
+            });
+
+            modal.appendChild(modalImg);
+            modal.appendChild(closeBtn);
+            document.body.appendChild(modal);
         }
     </script>
 </body>
