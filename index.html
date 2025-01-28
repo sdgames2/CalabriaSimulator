@@ -118,7 +118,8 @@
         }
 
         .previews img {
-            max-width: 100%;
+            width: 100%;
+            max-width: 300px; /* Limita la larghezza delle immagini */
             border-radius: 12px;
             margin: 5px;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
@@ -173,6 +174,10 @@
                 padding: 20px;
             }
 
+            .previews {
+                grid-template-columns: repeat(2, 1fr); /* 2 colonne anche sui dispositivi di medie dimensioni */
+            }
+
             .previews img {
                 max-width: 250px;
             }
@@ -188,11 +193,11 @@
             }
 
             .previews {
-                grid-template-columns: 1fr; /* 1 colonna sui dispositivi mobili */
+                grid-template-columns: repeat(2, 1fr); /* 2 colonne sui dispositivi mobili */
             }
 
             .previews img {
-                max-width: 100%;
+                max-width: 100%; /* Le immagini occuperanno tutta la larghezza disponibile */
             }
 
             .download-button {
