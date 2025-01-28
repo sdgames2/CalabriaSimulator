@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Calabria of the Apes</title>
+    <title>The Calabria of the Apes</title> 
     <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
     <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
     <meta name="author" content="Il tuo nome">
@@ -185,8 +185,10 @@
     </style>
 </head>
 <body>
-    <audio autoplay loop>
+    <!-- Audio in background -->
+    <audio id="background-music" loop>
         <source src="background_music.mp3" type="audio/mp3">
+        <source src="background_music.ogg" type="audio/ogg">
         Il tuo browser non supporta l'audio HTML.
     </audio>
 
@@ -212,7 +214,7 @@
     <main>
         <h2 id="explore-title">Esplora nu Munnu Nuovu</h2>
         <p id="game-description">Unisciti a la lotta epica nella Calàbbria dè scìmmie. Mèttiti a prova cu nu gameplay emozionante.</p>
-        <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button">Scarica Ora</a>
+        <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button" id="download-btn">Scarica Ora</a>
 
         <section class="instructions">
             <h3 id="install-title">Istruzzioni pi l'Installazzioni</h3>
@@ -258,6 +260,11 @@
                 language = 'calabrese';
             }
         }
+
+        // Play music when the download button is clicked
+        document.getElementById('download-btn').addEventListener('click', function() {
+            document.getElementById('background-music').play();
+        });
     </script>
 </body>
 </html>
