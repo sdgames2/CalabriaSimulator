@@ -7,7 +7,7 @@
     <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
     <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
     <meta name="author" content="Il tuo nome">
-    <link rel="icon" type="x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -23,9 +23,7 @@
             background-position: center;
             background-repeat: no-repeat;
             text-shadow: 2px 2px 4px #000000; 
-            animation: fadeIn 1s ease-in-out;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -36,70 +34,56 @@
             background-color: rgba(0, 0, 0, 0.4);
             z-index: -1;
         }
-
         header {
             background-color: transparent;
             color: white;
-            padding: 30px;
+            padding: 20px;
             width: 100%;
             text-align: center;
             box-sizing: border-box;
-            animation: slideDown 1s ease-out;
         }
-
+        main {
+            max-width: 900px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            color: #FFFFFF;
+        }
         h1, h2, h3 {
             margin: 20px 0;
             color: #ffd700;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
-
         p {
             line-height: 1.6;
             color: #FFFFFF;
-            font-size: 1.1em;
-            font-weight: 300;
         }
-
-        .download-container {
-            display: flex;
-            justify-content: center; /* Centra il contenitore */
-            width: 100%;
-            margin-top: 30px;
-        }
-
         .download-button {
-            background-color: #28a745; /* Verde */
+            background-color: #28a745;
             color: white;
-            padding: 15px 25px;
+            padding: 15px 20px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 10px;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
-
         .download-button:hover {
             background-color: #218838;
-            transform: scale(1.1);
-            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.6);
+            transform: scale(1.05);
         }
-
         .instructions {
             margin-top: 30px;
             background-color: #ffd700;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-            color: #000;
-            font-size: 1.1em;
-        }
-
-        footer {
-            margin-top: 50px;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            color: #000;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 15px;
             background-color: #ffd700;
             color: #000;
             font-size: 14px;
@@ -108,136 +92,91 @@
             border-top: 1px solid #334155;
             box-sizing: border-box;
         }
-
         .previews {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Imposta 2 colonne */
-            gap: 20px;
-            margin-top: 40px;
-            justify-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
-
         .previews img {
-            width: 100%;
-            max-width: 300px; /* Limita la larghezza delle immagini */
-            border-radius: 12px;
+            width: calc(50% - 15px);
+            max-width: 300px;
+            border-radius: 10px;
             margin: 5px;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
-
-        .previews img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
-        }
-
         .logo {
-            max-width: 75%;
+            max-width: 70%;
             margin: 0 auto;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
+        /* Media queries */
         @media (max-width: 768px) {
             body {
                 font-size: 90%;
             }
-
             header {
-                padding: 20px;
+                padding: 15px;
             }
-
             .download-button {
-                font-size: 16px;
-                padding: 12px 18px;
+                font-size: 14px;
+                padding: 12px 15px;
             }
-
             .instructions {
-                padding: 20px;
+                padding: 15px;
             }
-
-            .previews {
-                grid-template-columns: repeat(2, 1fr); /* 2 colonne anche sui dispositivi di medie dimensioni */
-            }
-
             .previews img {
-                max-width: 250px;
+                max-width: 45%;
             }
         }
 
         @media (max-width: 480px) {
             .logo {
-                max-width: 85%;
+                max-width: 90%;
             }
-
             main {
-                padding: 15px;
+                padding: 10px;
             }
-
-            .previews {
-                grid-template-columns: repeat(2, 1fr); /* 2 colonne sui dispositivi mobili */
-            }
-
             .previews img {
-                max-width: 100%; /* Le immagini occuperanno tutta la larghezza disponibile */
+                max-width: 100%;
+                width: 100%;
             }
-
             .download-button {
-                font-size: 14px;
-                padding: 10px 15px;
+                font-size: 12px;
+                padding: 8px 10px;
             }
-
             footer {
                 font-size: 12px;
-                padding: 12px;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <audio id="backgroundAudio" autoplay loop>
-        <source src="The Calabria of the Apes.mp3" type="audio/mp3">
+    <audio autoplay loop>
+        <source src="background_music.mp3" type="audio/mpeg">
+        Il tuo browser non supporta l'audio HTML.
     </audio>
 
     <header>
-        <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
-        <p>L'avventura della Calabria delle scimmie 🐵</p>
+        <img src="logo_gioco.png" alt="Logo The Calabria of the Apes" class="logo">
+        <p>L'avventura della Calabria delle scimmie</p>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1">
             <img src="anteprima2.jpg" alt="Anteprima 2">
             <img src="anteprima3.png" alt="Anteprima 3">
             <img src="anteprima4.png" alt="Anteprima 4">
             <img src="anteprima5.png" alt="Anteprima 5">
+            <img src="anteprima6.png" alt="Anteprima 6">
+            <img src="anteprima7.png" alt="Anteprima 7">
+            <img src="anteprima8.png" alt="Anteprima 8">
         </div>
     </header>
-
     <main>
         <h2>Esplora un Nuovo Mondo</h2>
         <p>Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.</p>
-
-        <!-- Contenitore per il pulsante centrato -->
-        <div class="download-container">
-            <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button">Scarica Ora</a>
-        </div>
-
+        <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button">Scarica Ora</a>
+        
         <section class="instructions">
             <h3>Istruzioni per l'Installazione</h3>
             <ol>
@@ -247,7 +186,6 @@
             </ol>
         </section>
     </main>
-
     <footer>
         <p>© 2025 The Calabria of the Apes. Tutti i diritti riservati.</p>
     </footer>
