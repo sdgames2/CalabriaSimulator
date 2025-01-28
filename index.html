@@ -46,11 +46,14 @@
         header img.logo {
             max-width: 70%;
         }
+
+        /* Posizionamento icona sotto il logo */
+        .cota-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
         .cota-icon {
-            position: absolute;
-            top: 120px;
-            left: 50%;
-            transform: translateX(-50%);
             width: 100px;  /* Nuove dimensioni */
             height: auto;
             animation: rotate 3s linear infinite;
@@ -226,6 +229,9 @@
     <header>
         <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
         <p id="game-title">L'avventura dâ Calàbbria dè scìmmie</p>
+        <div class="cota-container">
+            <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
+        </div>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
             <img src="anteprima2.jpg" alt="Anteprima 2" onclick="openModal(this)">
@@ -237,9 +243,6 @@
             <img src="anteprima8.png" alt="Anteprima 8" onclick="openModal(this)">
         </div>
         <button class="lang-button" onclick="changeLanguage()">Cambia Lingua</button>
-        
-        <!-- Aggiungi l'icona COTA in alto a destra -->
-        <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
     </header>
 
     <!-- Modale per ingrandire l'immagine -->
