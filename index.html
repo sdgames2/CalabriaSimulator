@@ -48,7 +48,7 @@
         }
         .cota-icon {
             position: relative;
-            top: 20px; /* Icona COTA sotto il logo */
+            top: 20px; /* Icona COTA tra il logo e le anteprime */
             width: 120px;
             height: auto;
             animation: rotate 3s linear infinite;
@@ -193,6 +193,10 @@
 
     <header>
         <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
+        
+        <!-- Icona COTA tra il logo e le anteprime -->
+        <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
+        
         <p id="game-title">L'avventura dâ Calàbbria dè scìmmie</p>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
@@ -205,9 +209,6 @@
             <img src="anteprima8.png" alt="Anteprima 8" onclick="openModal(this)">
         </div>
         <button class="lang-button" onclick="changeLanguage()">Cambia Lingua</button>
-        
-        <!-- Aggiungi l'icona COTA sotto il logo -->
-        <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
     </header>
 
     <main>
