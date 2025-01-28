@@ -110,15 +110,15 @@
         }
 
         .previews {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Imposta 2 colonne */
             gap: 20px;
             margin-top: 40px;
+            justify-items: center;
         }
 
         .previews img {
-            max-width: 300px;
+            max-width: 100%;
             border-radius: 12px;
             margin: 5px;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
@@ -187,8 +187,12 @@
                 padding: 15px;
             }
 
+            .previews {
+                grid-template-columns: 1fr; /* 1 colonna sui dispositivi mobili */
+            }
+
             .previews img {
-                max-width: 180px;
+                max-width: 100%;
             }
 
             .download-button {
