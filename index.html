@@ -99,7 +99,7 @@
             gap: 15px;
         }
         .previews img {
-            width: calc(50% - 15px);
+            width: calc(50% - 15px); /* Regola per far sì che le immagini si dispongano in due colonne */
             max-width: 300px;
             border-radius: 10px;
             margin: 5px;
@@ -126,7 +126,7 @@
                 padding: 15px;
             }
             .previews img {
-                max-width: 45%;
+                max-width: calc(50% - 15px); /* Impostato per 2 colonne su dispositivi con larghezza minore */
             }
         }
 
@@ -138,8 +138,8 @@
                 padding: 10px;
             }
             .previews img {
-                max-width: 100%;
-                width: 100%;
+                width: calc(50% - 15px); /* Mantenimento di due colonne anche su schermi molto piccoli */
+                max-width: calc(50% - 15px);
             }
             .download-button {
                 font-size: 12px;
