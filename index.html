@@ -41,7 +41,29 @@
             width: 100%;
             text-align: center;
             box-sizing: border-box;
+            position: relative;
         }
+        header img {
+            max-width: 70%;
+        }
+        .cota-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: auto;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         main {
             max-width: 900px;
             padding: 20px;
@@ -93,13 +115,13 @@
             box-sizing: border-box;
         }
         .previews {
-            display: grid; /* Cambiato da flex a grid */
-            grid-template-columns: repeat(2, 1fr); /* Due colonne */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             justify-items: center;
         }
         .previews img {
-            max-width: 100%; /* Manteniamo la larghezza al massimo senza rimpicciolire */
+            max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
@@ -137,7 +159,7 @@
                 padding: 15px;
             }
             .previews {
-                grid-template-columns: repeat(2, 1fr); /* Due colonne anche per schermi più piccoli */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -149,7 +171,7 @@
                 padding: 10px;
             }
             .previews {
-                grid-template-columns: repeat(2, 1fr); /* Due colonne su schermi molto piccoli */
+                grid-template-columns: repeat(2, 1fr);
             }
             .download-button {
                 font-size: 12px;
@@ -182,6 +204,9 @@
             <img src="anteprima8.png" alt="Anteprima 8">
         </div>
         <button class="lang-button" onclick="changeLanguage()">Cambia Lingua</button>
+        
+        <!-- Aggiungi l'icona COTA in alto a destra -->
+        <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
     </header>
 
     <main>
@@ -213,7 +238,7 @@
                 document.getElementById('explore-title').innerText = 'Esplora un Nuovo Mondo';
                 document.getElementById('game-description').innerText = 'Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.';
                 document.getElementById('install-title').innerText = 'Istruzioni per l\'Installazione';
-                document.getElementById('install-steps').innerHTML = `
+                document.getElementById('install-steps').innerHTML = ` 
                     <li>Scarica il file APK cliccando sul pulsante sopra.</li>
                     <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
                     <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
@@ -225,7 +250,7 @@
                 document.getElementById('explore-title').innerText = 'Esplora nu Munnu Nuovu';
                 document.getElementById('game-description').innerText = 'Unisciti a la lotta epica nella Calàbbria dè scìmmie. Mèttiti a prova cu nu gameplay emozionante.';
                 document.getElementById('install-title').innerText = 'Istruzzioni pi l\'Installazzioni';
-                document.getElementById('install-steps').innerHTML = `
+                document.getElementById('install-steps').innerHTML = ` 
                     <li>Scarica lu file APK cliccando supra lu buttuni.</li>
                     <li>Vai su "Sicurezza" nta li 'npostazioni Android e abilita "Origini sconosciute".</li>
                     <li>Tròva lu file nta la cartella di download e clicca pi installarlu.</li>
