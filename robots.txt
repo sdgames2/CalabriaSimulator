@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sdgames23.github.io/TheCalabriaOfTheApes_/sitemap.xml
