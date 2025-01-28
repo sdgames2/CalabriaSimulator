@@ -107,6 +107,19 @@
             max-width: 70%;
             margin: 0 auto;
         }
+        .lang-button {
+            margin-top: 20px;
+            background-color: #ffd700;
+            color: #000;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .lang-button:hover {
+            background-color: #e0a800;
+        }
 
         /* Media queries */
         @media (max-width: 768px) {
@@ -157,7 +170,7 @@
 
     <header>
         <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
-        <p>L'avventura della Calabria delle scimmie</p>
+        <p id="game-title">L'avventura dâ Calàbbria dâ scìmmie</p>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1">
             <img src="anteprima2.jpg" alt="Anteprima 2">
@@ -168,23 +181,58 @@
             <img src="anteprima7.png" alt="Anteprima 7">
             <img src="anteprima8.png" alt="Anteprima 8">
         </div>
+        <button class="lang-button" onclick="changeLanguage()">Cambia Lingua</button>
     </header>
+
     <main>
-        <h2>Esplora un Nuovo Mondo</h2>
-        <p>Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.</p>
+        <h2 id="explore-title">Esplora nu Munnu Nuovu</h2>
+        <p id="game-description">Unisciti a la lotta epica nella Calàbbria dâ scìmmie. Mèttiti a prova cu nu gameplay emozionante.</p>
         <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button">Scarica Ora</a>
-        
+
         <section class="instructions">
-            <h3>Istruzioni per l'Installazione</h3>
-            <ol>
-                <li>Scarica il file APK cliccando sul pulsante sopra.</li>
-                <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
-                <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
+            <h3 id="install-title">Istruzzioni pi l'Installazzioni</h3>
+            <ol id="install-steps">
+                <li>Scarica lu file APK cliccando supra lu buttuni.</li>
+                <li>Vai su "Sicurezza" nta li 'npostazioni Android e abilita "Origini sconosciute".</li>
+                <li>Tròva lu file nta la cartella di download e clicca pi installarlu.</li>
             </ol>
         </section>
     </main>
+
     <footer>
         <p>© 2025 The Calabria of the Apes. Tutti i diritti riservati.</p>
     </footer>
+
+    <script>
+        let language = 'calabrese'; // Iniziamo con il calabrese
+
+        function changeLanguage() {
+            if (language === 'calabrese') {
+                // Calabrese -> Italiano
+                document.getElementById('game-title').innerText = 'L\'avventura della Calabria delle scimmie';
+                document.getElementById('explore-title').innerText = 'Esplora un Nuovo Mondo';
+                document.getElementById('game-description').innerText = 'Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.';
+                document.getElementById('install-title').innerText = 'Istruzioni per l\'Installazione';
+                document.getElementById('install-steps').innerHTML = `
+                    <li>Scarica il file APK cliccando sul pulsante sopra.</li>
+                    <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
+                    <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
+                `;
+                language = 'it';
+            } else {
+                // Italiano -> Calabrese
+                document.getElementById('game-title').innerText = 'L\'avventura dâ Calàbbria dâ scìmmie';
+                document.getElementById('explore-title').innerText = 'Esplora nu Munnu Nuovu';
+                document.getElementById('game-description').innerText = 'Unisciti a la lotta epica nella Calàbbria dâ scìmmie. Mèttiti a prova cu nu gameplay emozionante.';
+                document.getElementById('install-title').innerText = 'Istruzzioni pi l\'Installazzioni';
+                document.getElementById('install-steps').innerHTML = `
+                    <li>Scarica lu file APK cliccando supra lu buttuni.</li>
+                    <li>Vai su "Sicurezza" nta li 'npostazioni Android e abilita "Origini sconosciute".</li>
+                    <li>Tròva lu file nta la cartella di download e clicca pi installarlu.</li>
+                `;
+                language = 'calabrese';
+            }
+        }
+    </script>
 </body>
 </html>
