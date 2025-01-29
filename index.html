@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it"> <!-- Imposta italiano come lingua di default -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,7 +199,7 @@
         <!-- Icona COTA centrata tra il logo e le anteprime -->
         <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
         
-        <p id="game-title">L'avventura dâ Calàbbria dè scìmmie</p>
+        <p id="game-title">L'avventura della Calabria delle scimmie</p>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
             <img src="anteprima2.jpg" alt="Anteprima 2" onclick="openModal(this)">
@@ -210,20 +210,20 @@
             <img src="anteprima7.png" alt="Anteprima 7" onclick="openModal(this)">
             <img src="anteprima8.png" alt="Anteprima 8" onclick="openModal(this)">
         </div>
-        <button class="lang-button" onclick="changeLanguage()">Cambia Lingua</button>
+        <button class="lang-button" onclick="changeLanguage()">Change Language</button> <!-- Cambia il testo del pulsante -->
     </header>
 
     <main>
-        <h2 id="explore-title">Esplora nu Munnu Nuovu</h2>
-        <p id="game-description">Unisciti a la lotta epica nella Calàbbria dè scìmmie. Mèttiti a prova cu nu gameplay emozionante.</p>
+        <h2 id="explore-title">Esplora un Nuovo Mondo</h2>
+        <p id="game-description">Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.</p>
         <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button" id="download-btn">Scarica Ora</a>
 
         <section class="instructions">
-            <h3 id="install-title">Istruzzioni pi l'Installazzioni</h3>
+            <h3 id="install-title">Istruzioni per l'Installazione</h3>
             <ol id="install-steps">
-                <li>Scarica lu file APK cliccando supra lu buttuni.</li>
-                <li>Vai su "Sicurezza" nta li 'npostazioni Android e abilita "Origini sconosciute".</li>
-                <li>Tròva lu file nta la cartella di download e clicca pi installarlu.</li>
+                <li>Scarica il file APK cliccando sul pulsante sopra.</li>
+                <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
+                <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
             </ol>
         </section>
 
@@ -238,33 +238,33 @@
     </footer>
 
     <script>
-        let language = 'calabrese'; // Iniziamo con il calabrese
+        let language = 'it'; // Iniziamo con l'italiano come lingua di default
 
         function changeLanguage() {
-            if (language === 'calabrese') {
-                // Calabrese -> Italiano
+            if (language === 'it') {
+                // Italiano -> Inglese
+                document.getElementById('game-title').innerText = 'The Adventure of the Calabria of the Apes';
+                document.getElementById('explore-title').innerText = 'Explore a New World';
+                document.getElementById('game-description').innerText = 'Join the epic battle in the Calabria of the Apes. Immerse yourself in exciting gameplay and test your limits.';
+                document.getElementById('install-title').innerText = 'Installation Instructions';
+                document.getElementById('install-steps').innerHTML =  
+                    '<li>Download the APK file by clicking the button above.</li>' +
+                    '<li>Go to "Security" in your Android settings and enable "Unknown Sources".</li>' +
+                    '<li>Find the file in your download folder and click to install it.</li>';
+                language = 'en';
+                document.querySelector('.lang-button').innerText = 'Cambia Lingua'; // Cambia il testo del pulsante a "Cambia Lingua" quando la lingua è inglese
+            } else {
+                // Inglese -> Italiano
                 document.getElementById('game-title').innerText = 'L\'avventura della Calabria delle scimmie';
                 document.getElementById('explore-title').innerText = 'Esplora un Nuovo Mondo';
                 document.getElementById('game-description').innerText = 'Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.';
                 document.getElementById('install-title').innerText = 'Istruzioni per l\'Installazione';
-                document.getElementById('install-steps').innerHTML = ` 
-                    <li>Scarica il file APK cliccando sul pulsante sopra.</li>
-                    <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
-                    <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
-                `;
+                document.getElementById('install-steps').innerHTML =  
+                    '<li>Scarica il file APK cliccando sul pulsante sopra.</li>' +
+                    '<li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>' +
+                    '<li>Trova il file nella tua cartella di download e clicca per installarlo.</li>';
                 language = 'it';
-            } else {
-                // Italiano -> Calabrese
-                document.getElementById('game-title').innerText = 'L\'avventura dâ Calàbbria dè scìmmie';
-                document.getElementById('explore-title').innerText = 'Esplora nu Munnu Nuovu';
-                document.getElementById('game-description').innerText = 'Unisciti a la lotta epica nella Calàbbria dè scìmmie. Mèttiti a prova cu nu gameplay emozionante.';
-                document.getElementById('install-title').innerText = 'Istruzzioni pi l\'Installazzioni';
-                document.getElementById('install-steps').innerHTML = ` 
-                    <li>Scarica lu file APK cliccando supra lu buttuni.</li>
-                    <li>Vai su "Sicurezza" nta li 'npostazioni Android e abilita "Origini sconosciute".</li>
-                    <li>Tròva lu file nta la cartella di download e clicca pi installarlu.</li>
-                `;
-                language = 'calabrese';
+                document.querySelector('.lang-button').innerText = 'Change Language'; // Cambia il testo del pulsante a "Change Language" quando la lingua è italiano
             }
         }
 
