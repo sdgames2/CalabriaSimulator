@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it"> <!-- Imposta italiano come lingua di default -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Calabria of the Apes</title>
+    <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
+    <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
+    <meta name="author" content="Il tuo nome">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -36,22 +40,46 @@
             padding: 20px;
             width: 100%;
             text-align: center;
+            box-sizing: border-box;
+            position: relative;
         }
-        .previews {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
+        header img {
+            max-width: 70%;
+        }
+        .cota-icon {
+            position: relative;
+            top: 20px; /* Icona COTA tra il logo e le anteprime */
+            width: 120px;
+            height: auto;
+            animation: rotate 3s linear infinite;
+            z-index: 10;
+            margin-left: auto;  /* Centra orizzontalmente */
+            margin-right: auto; /* Centra orizzontalmente */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        main {
             max-width: 900px;
-            width: 100%;
             padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            color: #FFFFFF;
         }
-        .previews img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
+        h1, h2, h3 {
+            margin: 20px 0;
+            color: #ffd700;
+        }
+        p {
+            line-height: 1.6;
+            color: #FFFFFF;
         }
         .download-button {
             background-color: #28a745;
@@ -65,6 +93,18 @@
             display: inline-block;
             transition: transform 0.2s ease, background-color 0.2s ease;
         }
+        .download-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .instructions {
+            margin-top: 30px;
+            background-color: #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            color: #000;
+        }
         footer {
             margin-top: 30px;
             padding: 15px;
@@ -73,63 +113,202 @@
             font-size: 14px;
             text-align: center;
             width: 100%;
+            border-top: 1px solid #334155;
+            box-sizing: border-box;
+        }
+        .previews {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            justify-items: center;
+        }
+        .previews img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            max-width: 70%;
+            margin: 0 auto;
+        }
+        .lang-button {
+            margin-top: 20px;
+            background-color: #ffd700;
+            color: #000;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .lang-button:hover {
+            background-color: #e0a800;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            body {
+                font-size: 90%;
+            }
+            header {
+                padding: 15px;
+            }
+            .download-button {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+            .instructions {
+                padding: 15px;
+            }
+            .previews {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 90%;
+            }
+            main {
+                padding: 10px;
+            }
+            .previews {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .download-button {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+            footer {
+                font-size: 12px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Audio in background -->
+    <audio id="background-music" loop autoplay muted>
+        <source src="https://raw.githubusercontent.com/SDGames23/TheCalabriaOfTheApes_/main/background_music.mp3" type="audio/mp3">
+        Il tuo browser non supporta l'audio HTML.
+    </audio>
 
-<header>
-    <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
-    <p id="game-title">L'avventura della Calabria delle scimmie</p>
+    <header>
+        <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
+        
+        <!-- Icona COTA centrata tra il logo e le anteprime -->
+        <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
+        
+        <p id="game-title">L'avventura della Calabria delle scimmie</p>
+        <div class="previews">
+            <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
+            <img src="anteprima2.jpg" alt="Anteprima 2" onclick="openModal(this)">
+            <img src="anteprima3.png" alt="Anteprima 3" onclick="openModal(this)">
+            <img src="anteprima4.png" alt="Anteprima 4" onclick="openModal(this)">
+            <img src="anteprima5.png" alt="Anteprima 5" onclick="openModal(this)">
+            <img src="anteprima6.png" alt="Anteprima 6" onclick="openModal(this)">
+            <img src="anteprima7.png" alt="Anteprima 7" onclick="openModal(this)">
+            <img src="anteprima8.png" alt="Anteprima 8" onclick="openModal(this)">
+        </div>
+        <button class="lang-button" onclick="changeLanguage()">Change Language</button> <!-- Cambia il testo del pulsante -->
+    </header>
 
-    <!-- Galleria di immagini anteprima -->
-    <div class="previews">
-        <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
-        <img src="anteprima2.jpg" alt="Anteprima 2" onclick="openModal(this)">
-        <img src="anteprima3.png" alt="Anteprima 3" onclick="openModal(this)">
-        <img src="anteprima4.png" alt="Anteprima 4" onclick="openModal(this)">
-        <img src="anteprima5.png" alt="Anteprima 5" onclick="openModal(this)">
-        <img src="anteprima6.png" alt="Anteprima 6" onclick="openModal(this)">
-        <img src="anteprima7.png" alt="Anteprima 7" onclick="openModal(this)">
-        <img src="anteprima8.png" alt="Anteprima 8" onclick="openModal(this)">
-    </div>
-</header>
+    <main>
+        <h2 id="explore-title">Esplora un Nuovo Mondo</h2>
+        <p id="game-description">Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.</p>
+        <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button" id="download-btn">Scarica Ora</a>
 
-<main>
-    <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button">Scarica Ora</a>
-</main>
+        <section class="instructions">
+            <h3 id="install-title">Istruzioni per l'Installazione</h3>
+            <ol id="install-steps">
+                <li>Scarica il file APK cliccando sul pulsante sopra.</li>
+                <li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>
+                <li>Trova il file nella tua cartella di download e clicca per installarlo.</li>
+            </ol>
+        </section>
 
-<footer>
-    <p>© 2025 The Calabria of the Apes. Tutti i diritti riservati.</p>
-</footer>
+        <!-- Aggiungi logo android.png -->
+        <div>
+            <img src="logo android.png" alt="Logo Android" style="max-width: 200px; margin-top: 30px;">
+        </div>
+    </main>
 
-<script>
-    function openModal(imgElement) {
-        const modal = document.createElement('div');
-        modal.style.position = 'fixed';
-        modal.style.top = '0';
-        modal.style.left = '0';
-        modal.style.width = '100vw';
-        modal.style.height = '100vh';
-        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        modal.style.display = 'flex';
-        modal.style.justifyContent = 'center';
-        modal.style.alignItems = 'center';
-        modal.style.zIndex = '1000';
+    <footer>
+        <p>© 2025 The Calabria of the Apes. Tutti i diritti riservati.</p>
+    </footer>
 
-        const modalImg = document.createElement('img');
-        modalImg.src = imgElement.src;
-        modalImg.style.maxWidth = '80%';
-        modalImg.style.maxHeight = '80%';
+    <script>
+        let language = 'it'; // Iniziamo con l'italiano come lingua di default
 
-        modal.appendChild(modalImg);
-        modal.onclick = function () {
-            document.body.removeChild(modal);
-        };
+        function changeLanguage() {
+            if (language === 'it') {
+                // Italiano -> Inglese
+                document.getElementById('game-title').innerText = 'The Adventure of the Calabria of the Apes';
+                document.getElementById('explore-title').innerText = 'Explore a New World';
+                document.getElementById('game-description').innerText = 'Join the epic battle in the Calabria of the Apes. Immerse yourself in exciting gameplay and test your limits.';
+                document.getElementById('install-title').innerText = 'Installation Instructions';
+                document.getElementById('install-steps').innerHTML =  
+                    '<li>Download the APK file by clicking the button above.</li>' +
+                    '<li>Go to "Security" in your Android settings and enable "Unknown Sources".</li>' +
+                    '<li>Find the file in your download folder and click to install it.</li>';
+                language = 'en';
+                document.querySelector('.lang-button').innerText = 'Cambia Lingua'; // Cambia il testo del pulsante a "Cambia Lingua" quando la lingua è inglese
+            } else {
+                // Inglese -> Italiano
+                document.getElementById('game-title').innerText = 'L\'avventura della Calabria delle scimmie';
+                document.getElementById('explore-title').innerText = 'Esplora un Nuovo Mondo';
+                document.getElementById('game-description').innerText = 'Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.';
+                document.getElementById('install-title').innerText = 'Istruzioni per l\'Installazione';
+                document.getElementById('install-steps').innerHTML =  
+                    '<li>Scarica il file APK cliccando sul pulsante sopra.</li>' +
+                    '<li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>' +
+                    '<li>Trova il file nella tua cartella di download e clicca per installarlo.</li>';
+                language = 'it';
+                document.querySelector('.lang-button').innerText = 'Change Language'; // Cambia il testo del pulsante a "Change Language" quando la lingua è italiano
+            }
+        }
 
-        document.body.appendChild(modal);
-    }
-</script>
+        // Funzione per aprire la modale con l'immagine
+        function openModal(imgElement) {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
 
+            const modalImg = document.createElement('img');
+            modalImg.src = imgElement.src;
+            modalImg.style.maxWidth = '80%';
+            modalImg.style.maxHeight = '80%';
+
+            modal.appendChild(modalImg);
+
+            modal.onclick = function () {
+                document.body.removeChild(modal);
+            };
+
+            document.body.appendChild(modal);
+        }
+
+        // Funzione per sbloccare l'audio
+        function startAudio() {
+            const audio = document.getElementById('background-music');
+            audio.muted = false;  // Disabilita il mute
+            audio.play();  // Avvia la riproduzione
+            // Rimuove il listener per evitare che l'audio parta più volte
+            window.removeEventListener('click', startAudio);
+            window.removeEventListener('scroll', startAudio);
+        }
+
+        // Aggiungi gli event listener per "click" e "scroll"
+        window.addEventListener('click', startAudio);
+        window.addEventListener('scroll', startAudio);
+    </script>
 </body>
 </html>
