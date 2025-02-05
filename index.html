@@ -223,6 +223,12 @@
             <p id="idea-description">
                 L'idea di "The Calabria of the Apes" nasce da un fenomeno virale che ha preso piede sui social: il famoso meme delle "scimmie calabresi". Un mix di umorismo che ha conquistato molti, diventando un simbolo di cultura. Da questa ispirazione, abbiamo voluto trasformare quel meme in un'avventura videoludica epica, dove le scimmie calabresi sono protagoniste di una lotta per la sopravvivenza in un mondo selvaggio. È un tributo a queste leggende online, che ora puoi vivere come mai prima d'ora, direttamente nel gioco!
             </p>
+            
+            <!-- English translation (hidden initially) -->
+            <h3 id="idea-title-en" style="display: none;">How the Idea for This Game Came About</h3>
+            <p id="idea-description-en" style="display: none;">
+                The idea for "The Calabria of the Apes" originates from a viral phenomenon that took off on social media: the famous "Calabrian monkeys" meme. A mix of humor that captivated many, becoming a cultural symbol. From this inspiration, we wanted to transform that meme into an epic gaming adventure, where the Calabrian monkeys are the protagonists in a fight for survival in a wild world. It’s a tribute to these online legends, which you can now experience like never before, directly in the game!
+            </p>
         </section>
 
         <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk" class="download-button" id="download-btn">Scarica Ora</a>
@@ -260,6 +266,13 @@
                     '<li>Download the APK file by clicking the button above.</li>' +
                     '<li>Go to "Security" in your Android settings and enable "Unknown Sources".</li>' +
                     '<li>Find the file in your download folder and click to install it.</li>';
+                
+                // Show English version of the idea and hide the Italian version
+                document.getElementById('idea-title').style.display = 'none';
+                document.getElementById('idea-description').style.display = 'none';
+                document.getElementById('idea-title-en').style.display = 'block';
+                document.getElementById('idea-description-en').style.display = 'block';
+                
                 language = 'en';
                 document.querySelector('.lang-button').innerText = 'Cambia Lingua'; // Cambia il testo del pulsante a "Cambia Lingua" quando la lingua è inglese
             } else {
@@ -272,52 +285,17 @@
                     '<li>Scarica il file APK cliccando sul pulsante sopra.</li>' +
                     '<li>Vai su "Sicurezza" nelle impostazioni Android e abilita "Origini sconosciute".</li>' +
                     '<li>Trova il file nella tua cartella di download e clicca per installarlo.</li>';
+                
+                // Show Italian version of the idea and hide the English version
+                document.getElementById('idea-title').style.display = 'block';
+                document.getElementById('idea-description').style.display = 'block';
+                document.getElementById('idea-title-en').style.display = 'none';
+                document.getElementById('idea-description-en').style.display = 'none';
+                
                 language = 'it';
                 document.querySelector('.lang-button').innerText = 'Change Language'; // Cambia il testo del pulsante a "Change Language" quando la lingua è italiano
             }
         }
-
-        // Funzione per aprire la modale con l'immagine
-        function openModal(imgElement) {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100vw';
-            modal.style.height = '100vh';
-            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-            modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.style.zIndex = '1000';
-
-            const modalImg = document.createElement('img');
-            modalImg.src = imgElement.src;
-            modalImg.style.maxWidth = '80%';
-            modalImg.style.maxHeight = '80%';
-
-            modal.appendChild(modalImg);
-
-            modal.onclick = function () {
-                document.body.removeChild(modal);
-            };
-
-            document.body.appendChild(modal);
-        }
-
-        // Funzione per sbloccare l'audio
-        function startAudio() {
-            const audio = document.getElementById('background-music');
-            audio.muted = false;  // Disabilita il mute
-            audio.play();  // Avvia la riproduzione
-            // Rimuove il listener per evitare che l'audio parta più volte
-            window.removeEventListener('click', startAudio);
-            window.removeEventListener('scroll', startAudio);
-        }
-
-        // Aggiungi gli event listener per "click" e "scroll"
-        window.addEventListener('click', startAudio);
-        window.addEventListener('scroll', startAudio);
     </script>
 </body>
 </html>
