@@ -8,9 +8,10 @@
     <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
     <meta name="author" content="Il tuo nome">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8fafc;
@@ -37,7 +38,7 @@
         header {
             background-color: transparent;
             color: white;
-            padding: 20px;
+            padding: 30px;
             width: 100%;
             text-align: center;
             box-sizing: border-box;
@@ -45,6 +46,7 @@
         }
         header img {
             max-width: 70%;
+            transition: all 0.3s ease;
         }
         .cota-icon {
             position: relative;
@@ -56,7 +58,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         @keyframes rotate {
             from {
                 transform: rotate(0deg);
@@ -65,7 +66,6 @@
                 transform: rotate(360deg);
             }
         }
-
         main {
             max-width: 900px;
             padding: 20px;
@@ -76,6 +76,7 @@
         h1, h2, h3 {
             margin: 20px 0;
             color: #ffd700;
+            font-family: 'Roboto', sans-serif;
         }
         p {
             line-height: 1.6;
@@ -116,16 +117,23 @@
             border-top: 1px solid #334155;
             box-sizing: border-box;
         }
+        /* Scrollable image gallery */
         .previews {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            overflow-x: scroll;
             gap: 15px;
-            justify-items: center;
+            padding: 15px 0;
+            scroll-behavior: smooth;
         }
         .previews img {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+        .previews img:hover {
+            transform: scale(1.05);
         }
         .logo {
             max-width: 70%;
@@ -160,9 +168,6 @@
             .instructions {
                 padding: 15px;
             }
-            .previews {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 480px) {
@@ -172,13 +177,6 @@
             main {
                 padding: 10px;
             }
-            .previews {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .download-button {
-                font-size: 12px;
-                padding: 8px 10px;
-            }
             footer {
                 font-size: 12px;
                 padding: 10px;
@@ -187,7 +185,6 @@
     </style>
 </head>
 <body>
-    <!-- Audio in background -->
     <audio id="background-music" loop autoplay muted>
         <source src="https://raw.githubusercontent.com/SDGames23/TheCalabriaOfTheApes_/main/background_music.mp3" type="audio/mp3">
         Il tuo browser non supporta l'audio HTML.
@@ -195,10 +192,7 @@
 
     <header>
         <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
-        
-        <!-- Icona COTA centrata tra il logo e le anteprime -->
         <img src="COTA Icon.png" alt="COTA Icon" class="cota-icon">
-        
         <p id="game-title">L'avventura della Calabria delle scimmie</p>
         <div class="previews">
             <img src="anteprima1.jpg" alt="Anteprima 1" onclick="openModal(this)">
@@ -210,21 +204,19 @@
             <img src="anteprima7.png" alt="Anteprima 7" onclick="openModal(this)">
             <img src="anteprima8.png" alt="Anteprima 8" onclick="openModal(this)">
         </div>
-        <button class="lang-button" onclick="changeLanguage()">Change Language</button> <!-- Cambia il testo del pulsante -->
+        <button class="lang-button" onclick="changeLanguage()">Change Language</button>
     </header>
 
     <main>
         <h2 id="explore-title">Esplora un Nuovo Mondo</h2>
         <p id="game-description">Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.</p>
-        
-        <!-- Nuova sezione con spiegazione dell'idea del gioco -->
+
         <section class="idea">
             <h3 id="idea-title">Come è nata l'idea di questo gioco?</h3>
             <p id="idea-description">
                 L'idea di "The Calabria of the Apes" nasce da un fenomeno virale che ha preso piede sui social: il famoso meme delle "scimmie calabresi". Un mix di umorismo che ha conquistato molti, diventando un simbolo di cultura. Da questa ispirazione, abbiamo voluto trasformare quel meme in un'avventura videoludica epica, dove le scimmie calabresi sono protagoniste di una lotta per la sopravvivenza in un mondo selvaggio. È un tributo a queste leggende online, che ora puoi vivere come mai prima d'ora, direttamente nel gioco!
             </p>
             
-            <!-- English translation (hidden initially) -->
             <h3 id="idea-title-en" style="display: none;">How the Idea for This Game Came About</h3>
             <p id="idea-description-en" style="display: none;">
                 The idea for "The Calabria of the Apes" originates from a viral phenomenon that took off on social media: the famous "Calabrian monkeys" meme. A mix of humor that captivated many, becoming a cultural symbol. From this inspiration, we wanted to transform that meme into an epic gaming adventure, where the Calabrian monkeys are the protagonists in a fight for survival in a wild world. It’s a tribute to these online legends, which you can now experience like never before, directly in the game!
@@ -242,7 +234,6 @@
             </ol>
         </section>
 
-        <!-- Aggiungi logo android.png -->
         <div>
             <img src="logo android.png" alt="Logo Android" style="max-width: 200px; margin-top: 30px;">
         </div>
