@@ -1,283 +1,243 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Calabria of the Apes</title>
-    <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
-    <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
-    <meta name="author" content="SD Games">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8fafc;
-            color: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-image: url('anteprima4.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            text-shadow: 2px 2px 4px #000000;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calabria Simulator</title>
+  <meta name="description" content="Unisciti alla lotta epica nella Calabria delle scimmie. Immergiti in un gameplay emozionante e sfida i tuoi limiti.">
+  <meta name="keywords" content="Calabria, Apes, gioco, avventura, download, gameplay">
+  <meta name="author" content="SD Games">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('anteprima3.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        main {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-        }
+    main {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
 
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            overflow: hidden;
-            margin: 20px auto;
-        }
+    .logo {
+      max-width: 300px;
+      margin-top: 20px;
+    }
 
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .carousel img {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            flex-shrink: 0;
-        }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
 
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 30px;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-        }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      overflow: hidden;
+      margin: 20px auto;
+    }
 
-        .arrow-left {
-            left: 10px;
-        }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
 
-        .arrow-right {
-            right: 10px;
-        }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
 
-        .download-button {
-            background-color: #28a745;
-            color: white;
-            padding: 15px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-top: 20px;
-            display: inline-block;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 30px;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
 
-        .download-button:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
+    .arrow-left {
+      left: 10px;
+    }
 
-        .social-button {
-            background-color: #3b5998;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            margin-left: 20px;
-            transition: background-color 0.2s ease;
-        }
+    .arrow-right {
+      right: 10px;
+    }
 
-        .social-button:hover {
-            background-color: #2d4373;
-        }
+    .download-button {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: inline-block;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
 
-        footer {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #ffd700;
-            color: #000;
-            font-size: 14px;
-            text-align: center;
-            width: 100%;
-            border-top: 1px solid #334155;
-            box-sizing: border-box;
-        }
+    .download-button:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
 
-        .logo {
-            max-width: 300px;
-            margin-top: 20px;
-        }
+    .social-button {
+      background-color: #3b5998;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      margin-left: 20px;
+      transition: background-color 0.2s ease;
+    }
 
-        @media (min-width: 768px) {
-            body {
-                padding: 20px;
-                background-attachment: fixed;
-            }
+    .social-button:hover {
+      background-color: #2d4373;
+    }
 
-            main {
-                max-width: 1000px;
-                margin: auto;
-            }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #ffd700;
+      color: #000;
+      font-size: 14px;
+      text-align: center;
+      width: 100%;
+      border-top: 1px solid #334155;
+      box-sizing: border-box;
+    }
 
-            h2 {
-                font-size: 2.5rem;
-            }
-
-            p {
-                font-size: 1.2rem;
-                line-height: 1.6;
-            }
-
-            .carousel img {
-                max-height: 600px;
-            }
-
-            .download-button {
-                font-size: 18px;
-                padding: 18px 30px;
-            }
-
-            #download-count {
-                font-size: 20px;
-            }
-
-            .social-button {
-                font-size: 16px;
-                padding: 12px 25px;
-            }
-
-            footer {
-                font-size: 16px;
-            }
-        }
-    </style>
+    section {
+      background-color: rgba(255,255,255,0.85);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      max-width: 900px;
+      margin: 50px auto;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-    <!-- Musica di sottofondo -->
-    <audio id="bg-music" loop autoplay muted>
-        <source src="background_music.mp3" type="audio/mpeg">
-        Il tuo browser non supporta l'audio HTML5.
-    </audio>
+  <audio id="bg-music" loop autoplay muted>
+    <source src="background_music.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l'audio HTML5.
+  </audio>
 
-    <header>
-        <img src="logo gioco.png" alt="Logo The Calabria of the Apes" class="logo">
-    </header>
+  <header>
+    <img src="logo gioco.png" alt="Logo Calabria Simulator" class="logo">
+  </header>
 
-    <main>
-        <h2>Esplora un Nuovo Mondo</h2>
-        <p>
-            "The Calabria of the Apes" è un videogioco d'avventura satirica in stile open world, ispirato ai meme più folli della rete.
-            Vesti i panni di scimmie ribelli e combatti nel cuore selvaggio della Calabria, tra ulivi parlanti e strane creature.
-        </p>
+  <main>
+    <h2>Esplora un Nuovo Mondo</h2>
+    <p>
+      "Calabria Simulator" è un videogioco d'avventura satirica in stile open world,
+                      ispirato ai meme più folli della rete.
+      Vesti i panni di scimmie ribelli e combatti nel cuore selvaggio della Calabria, 
+                      tra scimmie parlanti e strane creature.
+    </p>
 
-        <div class="carousel-container">
-            <div class="carousel">
-                <img src="anteprima1.jpg" alt="Anteprima 1" loading="lazy">
-                <img src="anteprima2.jpg" alt="Anteprima 2" loading="lazy">
-                <img src="anteprima3.png" alt="Anteprima 3" loading="lazy">
-                <img src="anteprima4.png" alt="Anteprima 4" loading="lazy">
-                <img src="anteprima5.png" alt="Anteprima 5" loading="lazy">
-            </div>
-            <div class="arrow arrow-left" onclick="moveCarousel(-1)">&#10094;</div>
-            <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
-        </div>
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="anteprima1.png" alt="Anteprima 1" loading="lazy">
+        <img src="anteprima2.png" alt="Anteprima 2" loading="lazy">
+        <img src="anteprima3.png" alt="Anteprima 3" loading="lazy">
+        <img src="anteprima4.png" alt="Anteprima 4" loading="lazy">
+        <img src="anteprima5.png" alt="Anteprima 5" loading="lazy">
+      </div>
+      <div class="arrow arrow-left" onclick="moveCarousel(-1)">&#10094;</div>
+      <div class="arrow arrow-right" onclick="moveCarousel(1)">&#10095;</div>
+    </div>
 
-        <a href="https://drive.google.com/file/d/1YsUJO96HZ5-oH92ZM7tbb0_f_74r_X99/view?usp=drivesdk"
-           class="download-button"
-           onclick="incrementDownloadCount()">
-           Scarica Ora
-        </a>
+    Coming Soon</a>
 
-        <p style="margin-top: 15px; font-weight: bold; font-size: 18px; text-shadow: none;">
-            🔥 Download totali: <span id="download-count">Caricamento...</span>
-        </p>
+    <p style="margin-top: 15px; font-weight: bold; font-size: 18px; text-shadow: none;">
+      🔥 Download totali: <span id="download-count">Caricamento...</span>
+    </p>
 
-        <div>
-            <img src="logo_sd_games.jpg" alt="Logo SD Games" style="max-width: 200px; margin-top: 30px; display: inline-block;">
-            <!-- Link Instagram aggiornato -->
-            <a href="https://www.instagram.com/sdgam.es?igsh=MW83ZG1neXRmY24zdQ==" class="social-button" target="_blank" rel="noopener noreferrer">Seguici su Instagram</a>
-        </div>
+    <div>
+      <img src="logo_sd_games.jpg" alt="Logo SD Games" style="max-width: 200px; margin-top: 30px; display: inline-block;">
+      <a href="https://www.instagram.com/sdgam.es?igsh=MW83ZG1neXRmY24zdQ==" class="social-button" target="_blank">Seguici su Instagram</a>
+    </div>
 
-        <!-- Sezione Chi Siamo -->
-        <section style="margin-top: 50px; background-color: rgba(255,255,255,0.85); padding: 30px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.4); max-width: 900px;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: #111;">Chi Siamo</h3>
-            <p style="font-size: 1.1rem; line-height: 1.6; color: #222;">
-                Siamo un piccolo team di sviluppatori e meme creators calabresi, uniti dalla passione per i giochi indipendenti e l’umorismo nonsense.
-                Il nostro obiettivo? Far ridere, far pensare, e portare un po’ di sana follia nel mondo del gaming italiano.
-            </p>
-            <p style="font-size: 1rem; font-style: italic; color: #444;">Creato con amore, ironia e tanta cipolla rossa di Tropea ❤️</p>
-        </section>
-    </main>
+    <section>
+      <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Chi Siamo</h3>
+      <p style="font-size: 1.1rem;">
+        Siamo un piccolo team di sviluppatori e meme creators calabresi, uniti dalla passione per i giochi indipendenti e l’umorismo nonsense.
+        Il nostro obiettivo? Far ridere, far pensare, e portare un po’ di sana follia nel mondo del gaming italiano.
+      </p>
+      <p style="font-size: 1rem; font-style: italic;">Creato con amore, ironia e tanta cipolla rossa di Tropea ❤️</p>
+    </section>
+  </main>
 
-    <footer>
-        <p>© 2025 The Calabria of the Apes. Tutti i diritti riservati.</p>
-    </footer>
+  <footer>
+    <p>© 2025 Calabria Simulator. Tutti i diritti riservati.</p>
+  </footer>
 
-    <script>
-        let currentIndex = 0;
+  <script>
+    let currentIndex = 0;
 
-        function moveCarousel(direction) {
-            const carousel = document.querySelector('.carousel');
-            const totalImages = document.querySelectorAll('.carousel img').length;
-            currentIndex = (currentIndex + direction + totalImages) % totalImages;
-            const offset = -currentIndex * 100;
-            carousel.style.transform = `translateX(${offset}%)`;
-        }
+    function moveCarousel(direction) {
+      const carousel = document.querySelector('.carousel');
+      const totalImages = document.querySelectorAll('.carousel img').length;
+      currentIndex = (currentIndex + direction + totalImages) % totalImages;
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
 
-        // Carica il numero attuale di download
-        fetch('https://api.countapi.xyz/get/calabriaoftheapes/downloads')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('download-count').textContent = data.value.toLocaleString();
-            })
-            .catch(() => {
-                document.getElementById('download-count').textContent = 'N/A';
-            });
+    fetch('https://api.countapi.xyz/get/calabriaoftheapes/downloads')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('download-count').textContent = data.value.toLocaleString();
+      })
+      .catch(() => {
+        document.getElementById('download-count').textContent = 'N/A';
+      });
 
-        // Incrementa il contatore al click
-        function incrementDownloadCount() {
-            fetch('https://api.countapi.xyz/hit/calabriaoftheapes/downloads')
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('download-count').textContent = data.value.toLocaleString();
-                });
-        }
+    function incrementDownloadCount() {
+      fetch('https://api.countapi.xyz/hit/calabriaoftheapes/downloads')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('download-count').textContent = data.value.toLocaleString();
+        });
+    }
 
-        // Rimuove "muted" al primo click/touch dell’utente
-        window.addEventListener('click', () => {
-            const music = document.getElementById('bg-music');
-            if (music.muted) {
-                music.muted = false;
-                music.play().catch(() => {});
-            }
-        }, { once: true });
-
-        function toggleMusic() {
-            const music = document.getElementById('bg-music');
-            if (music.paused) {
-                music.play();
-            } else {
-                music.pause();
-            }
-        }
-    </script>
+    window.addEventListener('click', () => {
+      const music = document.getElementById('bg-music');
+      if (music.muted) {
+        music.muted = false;
+        music.play().catch(() => {});
+      }
+    }, { once: true });
+  </script>
 </body>
 </html>
